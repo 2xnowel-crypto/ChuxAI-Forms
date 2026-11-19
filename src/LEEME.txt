@@ -1,0 +1,20 @@
+SMART TEST AI 3.2.2
+
+CAMBIO PRINCIPAL
+- No muestra panel flotante ni ningún texto de Smart Test AI en Google Forms.
+- No inserta la respuesta, explicación, confianza ni mensajes de estado en el formulario.
+- Mantiene el análisis con Ollama (qwen2.5:7b) y el marcado automático de la opción.
+- No envía el formulario.
+
+INSTALACIÓN
+1. Descomprime smart-test-ai-3.2.2.zip.
+2. Abre chrome://extensions y activa Modo de desarrollador.
+3. Quita la versión anterior o carga esta versión desde la carpeta smart-test-ai-3.2.2.
+4. Si Chrome muestra un ID distinto, copia ese ID.
+5. En PowerShell, detén Ollama con Ctrl+C y ejecuta, sustituyendo TU_ID:
+   $env:OLLAMA_ORIGINS="chrome-extension://TU_ID"
+   ollama serve
+6. Deja PowerShell abierto y prueba en Google Forms haciendo doble clic en el enunciado.
+
+NOTA
+La versión funciona de forma silenciosa. Si Ollama falla o no se puede identificar una pregunta, no aparecerá un aviso visual; revisa la consola de la extensión para diagnosticarlo.
