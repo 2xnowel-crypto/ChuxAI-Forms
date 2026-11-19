@@ -1,20 +1,41 @@
-SMART TEST AI 3.2.2
+CHUXAI V2 - VERSION 4.0.0
 
-CAMBIO PRINCIPAL
-- No muestra panel flotante ni ningún texto de Smart Test AI en Google Forms.
-- No inserta la respuesta, explicación, confianza ni mensajes de estado en el formulario.
-- Mantiene el análisis con Ollama (qwen2.5:7b) y el marcado automático de la opción.
-- No envía el formulario.
+FUNCIONES
+- Preguntas tipo test: analiza y marca una opción.
+- Selección múltiple: analiza y marca una o varias opciones.
+- Respuesta escrita: genera una respuesta breve y la introduce en el campo.
+- Activación mediante doble clic sobre el enunciado.
+- Procesamiento local con Ollama y qwen2.5:7b.
+- No envía ni entrega el formulario.
+
+REQUISITOS
+- Windows.
+- Google Chrome.
+- Ollama en ejecución en http://127.0.0.1:11434.
+- Modelo qwen2.5:7b descargado en Ollama.
 
 INSTALACIÓN
-1. Descomprime smart-test-ai-3.2.2.zip.
-2. Abre chrome://extensions y activa Modo de desarrollador.
-3. Quita la versión anterior o carga esta versión desde la carpeta smart-test-ai-3.2.2.
-4. Si Chrome muestra un ID distinto, copia ese ID.
-5. En PowerShell, detén Ollama con Ctrl+C y ejecuta, sustituyendo TU_ID:
+1. Abre chrome://extensions.
+2. Activa Modo de desarrollador.
+3. Pulsa Cargar descomprimida.
+4. Selecciona esta carpeta src, donde se encuentra manifest.json.
+5. Copia el ID de la extensión que muestra Chrome.
+6. Cierra el servidor Ollama si ya estaba iniciado.
+7. Abre PowerShell y ejecuta, sustituyendo TU_ID por el ID real:
+
    $env:OLLAMA_ORIGINS="chrome-extension://TU_ID"
    ollama serve
-6. Deja PowerShell abierto y prueba en Google Forms haciendo doble clic en el enunciado.
 
-NOTA
-La versión funciona de forma silenciosa. Si Ollama falla o no se puede identificar una pregunta, no aparecerá un aviso visual; revisa la consola de la extensión para diagnosticarlo.
+8. Deja abierta la ventana de PowerShell.
+9. Abre un Google Form compatible y haz doble clic en el enunciado.
+
+COMPROBACIONES
+- Comprueba el modelo con: ollama list
+- Comprueba la API en: http://127.0.0.1:11434
+- Si modificas archivos de la extensión, vuelve a chrome://extensions y pulsa Recargar.
+
+IMPORTANTE
+- La IA puede equivocarse. Revisa las respuestas antes de utilizar el formulario.
+- No se pulsa el botón Enviar.
+- La extensión no es compatible necesariamente con todos los diseños o tipos de pregunta de Google Forms.
+- No incluyas datos personales o confidenciales en preguntas que no deban procesarse localmente.
