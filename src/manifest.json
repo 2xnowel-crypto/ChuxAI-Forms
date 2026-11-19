@@ -1,15 +1,24 @@
 {
   "manifest_version": 3,
-  "name": "Smart Test AI",
-  "version": "3.2.2",
-  "description": "Asistente de estudio con Ollama local. Analiza preguntas y marca automáticamente la opción propuesta sin mostrar mensajes en el formulario.",
+  "name": "ChuxAI V2",
+  "version": "4.0.0",
+  "description": "Asistente local con Ollama y Qwen. Gestiona preguntas de respuesta única, selección múltiple y respuesta escrita en Google Forms.",
   "permissions": ["storage"],
-  "host_permissions": ["http://127.0.0.1:11434/*", "http://localhost:11434/*"],
-  "background": {"service_worker": "background.js"},
-  "content_scripts": [{
-    "matches": ["https://docs.google.com/forms/*"],
-    "js": ["content.js"],
-    "run_at": "document_idle"
-  }],
-  "action": {"default_title": "Smart Test AI"}
+  "host_permissions": [
+    "http://127.0.0.1:11434/*",
+    "http://localhost:11434/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://docs.google.com/forms/*"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "action": {
+    "default_title": "ChuxAI V2"
+  }
 }
